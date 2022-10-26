@@ -2,4 +2,3 @@ pip
 streamlit
 pandas
 numpy
-snowflake.connector
