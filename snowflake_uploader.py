@@ -274,4 +274,4 @@ if file_upload is not None:
                                 Total Number of records inserted: {rc}""")
                 lastinserted = run_query(f"""SELECT * FROM {selectbox_database}.{selectbox_schema}.{table_name} ORDER BY "Load_time" LIMIT 1000 """)
                 lastinserted = p.DataFrame(lastinserted,columns=sel)
-                st.write(lastinserted)
+                st.write(lastinserted) 
