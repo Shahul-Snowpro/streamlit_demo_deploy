@@ -3,4 +3,3 @@ streamlit
 pandas
 numpy
 snowflake-connector-python
-os-sys
