@@ -3,8 +3,7 @@ import pandas as p
 import snowflake.connector as sc
 sc.paramstyle='qmark'
 from datetime import datetime as d
-import os
-import sys
+import getpass as gp
 
 st.set_page_config(
     layout='wide'
@@ -101,13 +100,13 @@ if file_upload is not None:
     if (radio_bt == "New Table" or radio_bt == "Insert") and head == "Yes":
         csv_reader["filename"] = file_upload.name
         csv_reader["Load_time"] = d.now().strftime("%m/%d/%Y %H:%M:%S")
-        csv_reader["loaded_by"] = os.getlogin()
+        csv_reader["loaded_by"] = gp.getuser()
         csv_reader["Update_time"] = 'Null'
         csv_reader["Updated_by"] = 'Null'
     if radio_bt == "Update" and head == "Yes":
         csv_reader["filename"] = file_upload.name
         csv_reader["Update_time"] = d.now().strftime("%m/%d/%Y %H:%M:%S")
-        csv_reader["Updated_by"] = os.getlogin()
+        csv_reader["Updated_by"] = gp.getuser()
 
     header_datatype = csv_reader.dtypes.index
 
