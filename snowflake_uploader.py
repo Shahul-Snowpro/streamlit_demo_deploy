@@ -4,6 +4,7 @@ import snowflake.connector as sc
 sc.paramstyle='qmark'
 from datetime import datetime as d
 import os
+import sys
 
 st.set_page_config(
     layout='wide'
