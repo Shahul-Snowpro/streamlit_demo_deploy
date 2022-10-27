@@ -42,6 +42,7 @@ if file_upload is not None:
         database= run_query(f'''SELECT DATABASE_NAME FROM information_schema.databases ''')
         database = p.DataFrame(database,columns=["Database Name"]).sort_values(by='Database Name',ascending=True)
         selectbox_database = st.selectbox("Database",database)
+    run_query(f'use database {selectbox_database}')
     with schema:
         schema = run_query(f'''SELECT SCHEMA_NAME FROM information_schema.schemata WHERE CATALOG_NAME = '{selectbox_database}' ''')
         schema = p.DataFrame(schema,columns=["Schema Name"]).sort_values(by='Schema Name',ascending=True)
